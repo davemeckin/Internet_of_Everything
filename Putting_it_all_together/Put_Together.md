@@ -4,6 +4,8 @@
 
 This workshop is designed to make you think back to previous sessions so you can put all the stuff we've done together. If you are unsure, please check back through the workshops and the things we made to refresh your memory before asking for help.
 
+Where code is supplied, please make every effort to type it out yourself, you will not learn by copying and pasting code.
+
 ### Task 1 - Pubnub History
 
 - In the coursework brief, it states that you must use the pubnub history API to store data captured. Find the coursework brief and read it thoroughly.
@@ -25,7 +27,7 @@ This workshop is designed to make you think back to previous sessions so you can
 
 ### Task 4 - Ensure Your Data is Viewable 
 
-- With the ```pubnub.history({})``` method that you experimented with in the tutorial, see if you can still view your data when you add this to the page you built in the final session of the Physical Computing workshops.
+- With the ```pubnub.history({})``` method that you experimented with in the tutorial, see if you can still view your data when you add this to the [page](ws4_MAKE_2017_Example.html) you built in the final session of the Physical Computing workshops.
 
 - It might look something like this:
 

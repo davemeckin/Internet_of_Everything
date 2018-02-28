@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://pubnub.github.io/eon/v/eon/1.0.0/eon.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://pubnub.github.io/eon/v/eon/1.0.0/eon.css"/>
+    <title> Demo Sensor Visualisation</title>
+  </head>
+  <body>
+    <div id="chart"></div>
+    <script>
+      var pubnub = new PubNub(
+      {
+        publishKey: 'YOUR PUBLISH KEY',
+        subscribeKey: 'YOUR SUBSCRIBE KEY'
+      }
+      );
+      var channel = 'iotchannel'
+
+       pubnub.history(
+          {
+        channel : 'iotchannel',
+        count : 36
+        },
+        function (status, response) {
+         console.log(status,response);
+        }
+      );
+
+      eon.chart({
+        channels: [channel],
+        history: true,
+        flow: true,
+        pubnub: pubnub,
+        generate: {
+          bindto: '#chart',
+          data: {
+            type: 'spline',
+            labels: false
+          }
+        }
+      });
+     
+    </script>
+ 
+  </body>
+</html>
+
+
+
+
