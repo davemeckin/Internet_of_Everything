@@ -178,10 +178,15 @@ Chart.defaultProps = {
 
 export default Chart;
 ```
+- Now, back in your App class, import your Chart component somewhere at the top.
+- Then in the main app wrapper div, add your chart, setting the relevent props from the App state:
 
 ```javascript
 <Chart ident="chart1" datepub = {this.state.datepub} pubnub={this.state.pubnub} channel={this.state.channel} chartType={this.state.chartType}/>
 ```
+
+- OK now add two buttons which call the ```_setLineChart()``` and ```_setBarChart()``` methods. HINT: This works exactly the same as HTML using the onClick method attribute!
+
 ### Task 8 - Create some new components from material-ui examples
 
 - Go to http://www.material-ui.com/ and check out some of their awesome ui components.
