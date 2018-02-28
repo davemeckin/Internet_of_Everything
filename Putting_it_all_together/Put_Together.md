@@ -42,6 +42,24 @@ pubnub.history(
         }
     );
 ```
+- And don't forget to set the History Flag to true in your eon chart:
+
+```javascript
+eon.chart({
+        channels: [channel],
+        history: true,
+        flow: true,
+        pubnub: pubnub,
+        generate: {
+          bindto: '#chart',
+          data: {
+            type: 'spline',
+            labels: false
+          }
+        }
+      });
+```
+
 ### Task 5 - Working with React
 
 - Make a new create-react-app project - remember how to do it? If not, go back to the first section of last week's tutorial.
