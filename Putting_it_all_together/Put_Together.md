@@ -206,6 +206,8 @@ export default Chart;
 
 - OK now add two buttons which call the ```_setLineChart()``` and ```_setBarChart()``` methods. HINT: This works exactly the same as HTML using the onClick method attribute!
 
+- Awesome, you've made a demo visualiser in React for your recorded data!
+
 ### Task 8 - Create some new components from material-ui examples
 
 - Go to http://www.material-ui.com/ and check out some of their awesome ui components.
