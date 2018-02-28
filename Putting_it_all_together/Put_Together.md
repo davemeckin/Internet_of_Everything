@@ -93,16 +93,16 @@ this.state = {
     };
 ```
 
-- Within our App class, we also need to make two functions to change the state of our App and pass those as props down to the Chart component that we're going to make in the next two stages:
+- Within our App class, we also need to make two functions to change the state of our App and pass those as props down to the Chart component that we're going to make in the next two stages. We're using the new arrow syntax to bind this to the correct execution context:
 
 ```javascript
   _setBarChart = () => {
-        //console.log("yoBar");
+        console.log("Bar");
         this.setState({ chartType: 'bar' });
     }
 
     _setLineChart = () => {
-        //console.log("yoLine", this.setState);
+        console.log("Line");
         this.setState({ chartType: 'spline' })
     }
 ```
@@ -123,7 +123,6 @@ this.state = {
 
 ```javascript
 componentDidMount() {
-    //console.log(this.props.datepub);
      this.chart = c3.generate({
       bindto: '#'+this.props.ident,
       data: { 
