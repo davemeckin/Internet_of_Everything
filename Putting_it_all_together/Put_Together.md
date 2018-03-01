@@ -32,9 +32,11 @@ Where code is supplied, please make every effort to type it out yourself, you wi
 - It might look something like this:
 
 ```javascript
+var channel = 'YOUR CHANNEL NAME';
+
 pubnub.history(
           {
-        	channel : 'YOUR CHANNEL NAME',
+        	channel : channel,
         	count : 36
         },
         function (status, response) {
@@ -45,6 +47,8 @@ pubnub.history(
 - And don't forget to set the History Flag to true in your eon chart:
 
 ```javascript
+
+
 eon.chart({
         channels: [channel],
         history: true,
