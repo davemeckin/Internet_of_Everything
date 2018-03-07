@@ -101,6 +101,7 @@ this.pubnub.history(
           this.datepub[1] = this.datepub[0].slice().reverse();	// reversing second array
           this.datepub[0].unshift('data1'); // adding label to start of array 0
           this.datepub[1].unshift('data2'); // adding label to start of array 1
+          this.setState({datepub:this.datepub}); //update datepub
         }).bind(this)						//binding to present execution context
       );
 ```
