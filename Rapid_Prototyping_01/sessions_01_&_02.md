@@ -164,7 +164,7 @@ I split the sphere and deleted the cylinder:
 
 When creating designs for lasercutting, it is critical that we know the thickness of the sheet material we are cutting. 
 
-For this project, we will cut a 5mm plywood. That is pretty thick, but at least we will know it is strong. 
+For this project, we will cut a 3mm plywood. That is pretty thick, but at least we will know it is strong. 
 
 ### INTERLUDE 2 - ARDUINO MODEL
 
@@ -182,7 +182,7 @@ You have to figure this one out: you need to *rotate* the Arduino by 90 degrees 
 
 ![Arduino in Position](images/arduino.png)
 
-Now put Osnap on End, and type the command "move". Hover your cursor over the very bottom of the pins on the underside of the board in the Front view pane. Let the cursor snap to the bottom of the pin. Now move the board up so it sits about 5mm above the X axis.
+Now put Osnap on End, and type the command "move". Hover your cursor over the very bottom of the pins on the underside of the board in the Front view pane. Let the cursor snap to the bottom of the pin. Now move the board up so it sits about 3mm above the X axis.
 
 
 ### Task 5 - Using Layers
@@ -205,13 +205,13 @@ Now draw a rectangle (120mm x 160mm) whose bottom side is level with the USB por
 
 ![Arduino Rectangle](images/arduino_rectangle.png)
 
-Make sure you leave more than 5mm space on the left hand side of the Arduino...
+Make sure you leave more than 3mm space on the left hand side of the Arduino...
 
 Do the following whilst still in the Top_Bottom layer:
 
 We're now going to make the outline for five finger joints at the bottom of our box. In order to do this, we need to calculate how many times five goes into the full width of 120mm.
 
-Once you've calculated that number draw a polyline that starts snapped to the top left hand corner of the rectangle. Each horizontal segment of the polyline should be the length of the number that you calculated, and each vertical segment should be 5mm long:
+Once you've calculated that number draw a polyline that starts snapped to the top left hand corner of the rectangle. Each horizontal segment of the polyline should be the length of the number that you calculated, and each vertical segment should be 3mm long:
 
 ![Case First Line](images/case_first_line.png)
 
@@ -219,7 +219,7 @@ Once you've calculated that number draw a polyline that starts snapped to the to
 
 Now, rather than having to do all that again, we're able to use the "mirror" function to replicate our polyline. With the line selected, type "mirror", and make sure you select the copy option as we want to make a copy. Now, with Osnap on midpoint, hover your cursor over the middle of one of the longer lines of the rectangle. You'll see that your polyline is replicated on the bottom edge of the rectangle. Hit enter.
 
-Now we're going to repeat the process for the long sides. Let's divide 160 by 7 this time, you can round the result down to 2 decimal places. Now make a polyline going from the top left hand corner down to the bottom left hand corner with the vertical segments at the division you calclulated. And the horizontal segments at 5mm. Remember to use OSnap end...
+Now we're going to repeat the process for the long sides. Let's divide 160 by 7 this time, you can round the result down to 2 decimal places. Now make a polyline going from the top left hand corner down to the bottom left hand corner with the vertical segments at the division you calclulated. And the horizontal segments at 3mm. Remember to use OSnap end...
 
 Now let's mirror it snapping to the midpoint of the bottom line of the rectangle.
 
@@ -231,7 +231,7 @@ Alrighty, we now have the outline of the bottom of our box. So here we encounter
 
 Now for our extrusion, go back into viewing all four view panes by double clicking in the top left hand corner again. Now, whilst focused in the "right" pane with the joined polyline selected, type "extrude" and select "extrudecrv". 
 
-Extrude upwards by 5mm. There, now we have our bottom piece of plywood for our box!
+Extrude upwards by 3mm. There, now we have our bottom piece of plywood for our box!
 
 ![Bottom Extrusion](images/bottom_side.png)
 
@@ -246,7 +246,7 @@ With the right hand view pane maximised, create a rectangle that starts (end sna
 
 
 
-We're going to repeat the processes of the bottom side of the box. So draw a polyline that starts from the top left hand corner of the bottom extrusion. This polyline should have vertical segments of 50/5 long, and horizontal segments of 5mm.
+We're going to repeat the processes of the bottom side of the box. So draw a polyline that starts from the top left hand corner of the bottom extrusion. This polyline should have vertical segments of 50/5 long, and horizontal segments of 3mm.
 
 So your polyline should look like this:
 
@@ -260,7 +260,7 @@ Now draw the corresponding horizontal polyline, starting from the end of the ver
 
 OK now mirror the bottom polyline using the midpoint of the vertical rectangle line, and join all of those four new polylines together.
 
-Now we can go back to 4 pane view and extrude this one by 5mm too! Is it extruding the right way? If not, try using -5mm instead...
+Now we can go back to 4 pane view and extrude this one by 3mm too! Is it extruding the right way? If not, try using -3mm instead...
 
 Now mirror the entire bottom extrusion, using the midpoint of the mid point of the right extrusion as an axis. Now we have a lid.
 
@@ -270,7 +270,7 @@ And in the top view, you can mirror the right hand extrusion using the midpoint 
 
 #### Third side of box
 
-Now you may be thinking, jeez I have to do that all again for the front and back. But here's where it gets easier. On a new layer, all we now need to do is make a box that starts from the front bottom left hand corner of the the bottom extrusion (nearest the USB port of the Arduino). This box should be 120mm x 5mm x 60mm:
+Now you may be thinking, jeez I have to do that all again for the front and back. But here's where it gets easier. On a new layer, all we now need to do is make a box that starts from the front bottom left hand corner of the the bottom extrusion (nearest the USB port of the Arduino). This box should be 120mm x 3mm x 60mm:
 
 ![Front Box](images/front_box.png)
 
