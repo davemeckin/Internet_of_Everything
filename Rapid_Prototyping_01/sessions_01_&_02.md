@@ -6,9 +6,9 @@ This is a practical guide with limited scope to building enclosures/interface bo
 
 ### Task 1 - Research
 
-Do some research using google, MIT's media lab and google scholar. See if you can find some interesting examples of inspiring physical prototypes.
+Do some research reading about the [Tangible Embedded Interaction Conference](https://tei.acm.org/2018/proceedings/) and read a couple of papers. See if you can find some interesting examples of inspiring physical prototypes.
 
-Find three examples and discuss with the person next to you/ people in your group.
+Find your favourite example and discuss with the person next to you/ people in your group.
 
 ### Task 2 - Simple 2D Drawing
 
