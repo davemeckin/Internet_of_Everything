@@ -28,7 +28,7 @@ Where code is supplied, please make every effort to type it out yourself, you wi
 
 ### Task 4 - Ensure Your Data is Viewable 
 
-- With the ```pubnub.history({})``` method that you experimented with in the tutorial, see if you can still view your data when you add this to the [page](ws4_MAKE_2017_Example.html) you built in the final session of the Physical Computing workshops.
+- With the ```pubnub.history({})``` method that you experimented with in the tutorial, see if you can still view your data when you add this to the [page](ws4_MAKE_2018_Example.html) you built in the final session of the Physical Computing workshops.
 
 - It might look something like this:
 
