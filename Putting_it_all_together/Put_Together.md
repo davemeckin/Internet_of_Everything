@@ -219,5 +219,6 @@ export default Chart;
 - Try copying their source code into new custom componenents of your own and add them to your project.
 - NOTE: all material ui components need to be enclosed in <MuiThemeProvider></MuiThemeProvider> tags.
 
-### Task 9 - Why not try it with Project Eon by following the example code given on [this page](https://www.npmjs.com/package/eon-react). This is untested at this time!
+### Task 9 
+- Why not try it with Project Eon by following the example code given on [this page](https://www.npmjs.com/package/eon-react). This is untested at this time!
 
