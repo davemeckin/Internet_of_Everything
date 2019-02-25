@@ -10,6 +10,7 @@ Where code is supplied, please make every effort to type it out yourself, you wi
 
 - In the coursework brief, it states that you must use the pubnub history API to store data captured. Find the coursework brief and read it thoroughly.
 - Find the link to the pubnub tutorial in the coursework brief and follow the tutorial steps to enable the history API.
+- You might find [this link](https://support.pubnub.com/support/solutions/articles/14000043855-how-do-i-enable-add-on-features-for-my-keys-) useful
 
 
 ### Task 2 - Connect your Arduino to Pubnub
