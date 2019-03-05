@@ -145,10 +145,10 @@ this.state = {
 - Create a standard shell of a component with class structure - just as we did in the create-react-app tutorial last week. Call the class Chart and save your file as Chart.js
 - Now import c3 using ```import c3 from 'c3';```
 - Make sure you also import the css using ```import '../node_modules/c3/c3.css';``` 
-- OK we're going to use an in built React method called ```componentDidMount()``` to generate our c3 chart:
+- OK we're going to use an in built React method called ```componentWillReceiveProps()``` to generate our c3 chart:
 
 ```javascript
-componentDidMount() {
+componentWillReceiveProps() {
      this.chart = c3.generate({
       bindto: '#'+this.props.ident,
       data: { 
@@ -168,7 +168,7 @@ componentDidMount() {
  class Chart extends Component {
 
  
-  componentDidMount() {
+  componentWillReceiveProps() {
     
      this.chart = c3.generate({
       bindto: '#'+this.props.ident,
