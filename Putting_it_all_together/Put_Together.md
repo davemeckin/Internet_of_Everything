@@ -33,7 +33,7 @@ Where code is supplied, please make every effort to type it out yourself, you wi
 - It might look something like this:
 
 ```javascript
-var channel = 'YOUR CHANNEL NAME';
+let channel = 'YOUR CHANNEL NAME';
 
 pubnub.history(
           {
