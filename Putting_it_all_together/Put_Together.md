@@ -168,7 +168,7 @@ componentDidMount(){
   }
   ```
 
-So, your final EonChart compoment class should look like this:
+So, your final EonChart component class should look like this:
 
 ```javascript
 import React from 'react';
