@@ -222,7 +222,7 @@ import EonChart from './EonChart.js';
 ```
 So, your final App.js should look like this:
 
-````javascript
+```javascript
 import React from 'react';
 import PubNub from 'pubnub';
 import EonChart from './EonChart.js';
