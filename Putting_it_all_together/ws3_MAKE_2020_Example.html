@@ -8,13 +8,13 @@
   <body>
     <div id="chart"></div>
     <script>
-      var pubnub = new PubNub(
+      let pubnub = new PubNub(
       {
         publishKey: 'pub-c-e1724244-aaba-4c9b-8d0e-2485941a394f',
         subscribeKey: 'sub-c-4623abce-d815-11e6-9a5d-02ee2ddab7fe'
       }
       );
-      var channel = 'ioechannel'
+      let channel = 'ioechannel'
 
       //  pubnub.history(
       //     {
