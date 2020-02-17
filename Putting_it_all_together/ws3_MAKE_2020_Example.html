@@ -10,21 +10,21 @@
     <script>
       var pubnub = new PubNub(
       {
-        publishKey: 'YOUR PUBLISH KEY',
-        subscribeKey: 'YOUR SUBSCRIBE KEY'
+        publishKey: 'pub-c-e1724244-aaba-4c9b-8d0e-2485941a394f',
+        subscribeKey: 'sub-c-4623abce-d815-11e6-9a5d-02ee2ddab7fe'
       }
       );
-      var channel = 'iotchannel'
+      var channel = 'ioechannel'
 
-       pubnub.history(
-          {
-        channel : 'iotchannel',
-        count : 36
-        },
-        function (status, response) {
-         console.log(status,response);
-        }
-      );
+      //  pubnub.history(
+      //     {
+      //   channel : 'ioechannel',
+      //   count : 36
+      //   },
+      //   function (status, response) {
+      //    console.log(status,response);
+      //   }
+      // );
 
       eon.chart({
         channels: [channel],

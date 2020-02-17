@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://pubnub.github.io/eon/v/eon/1.0.0/eon.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://pubnub.github.io/eon/v/eon/1.0.0/eon.css"/>
+    <title> Demo Sensor Visualisation</title>
+  </head>
+  <body>
+    <div id="chart"></div>
+    <script>
+      var pubnub = new PubNub(
+      {
+        publishKey: 'pub-c-e1724244-aaba-4c9b-8d0e-2485941a394f',
+        subscribeKey: 'sub-c-4623abce-d815-11e6-9a5d-02ee2ddab7fe'
+      }
+      );
+      var channel = 'ioechannel'
+
+      //  pubnub.history(
+      //     {
+      //   channel : 'ioechannel',
+      //   count : 36
+      //   },
+      //   function (status, response) {
+      //    console.log(status,response);
+      //   }
+      // );
+       let pubber = function () { 
+        pubnub.publish(
+            {
+                message: { 
+                    'eon': {'sensor': Math.floor(Math.random() * Math.floor(2000))} 
+                },
+                channel: 'ioechannel',
+                sendByPost: true, // true to send via post
+                storeInHistory: true, //override default storage options
+                   // publish extra meta with the request
+            }, 
+            function (status, response) {
+                if (status.error) {
+                    // handle error
+                    console.log(status)
+                } else {
+                    console.log("message Published w/ timetoken", response.timetoken)
+                }
+            }
+        );
+      }
+      let test = function(){
+        console.log("hi");
+      }
+      window.setInterval(pubber,1000);
+     
+    </script>
+ 
+  </body>
+</html>
+
+
+
+

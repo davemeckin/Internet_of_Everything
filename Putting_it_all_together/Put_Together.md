@@ -8,8 +8,8 @@ Where code is supplied, please make every effort to type it out yourself, you wi
 
 ### Task 1 - Pubnub History
 
-- In the coursework brief, it states that you must use the pubnub history API to store data captured. Find the coursework brief and read it thoroughly.
-- Find the link to the pubnub tutorial in the coursework brief and follow the tutorial steps to enable the history API.
+- In the coursework brief, it states that you if you are using Pubnub, you must use the pubnub history API to store data captured. Find the coursework brief and read it thoroughly.
+- Find the link to the pubnub tutorial in the coursework brief and follow the tutorial steps to enable the history API (you can only store history for 7 days with the free version).
 - You might find [this link](https://support.pubnub.com/support/solutions/articles/14000043855-how-do-i-enable-add-on-features-for-my-keys-) useful
 
 
@@ -17,8 +17,8 @@ Where code is supplied, please make every effort to type it out yourself, you wi
 
 - Connect your Arduino to the ethernet shield.
 - Connect a sensor to your Arduino. This could be any of the sensors we previously used: light detection/proximity detection/slide potentiometer).
-- Write/load the necesary firmware onto your Arduino.
-- Test your data flow works by checking your previous workshop page that was built in the final session of the Physical Computing workshops.
+- Write/load the necesary firmware onto your Arduino, you saved it from the 3rd Physical Computing workshop, right?
+- Test your data flow works by checking your previous workshop page that was built in the third session of the Physical Computing workshops.
 
 
 ### Task 3 - Record Some Data
@@ -28,7 +28,7 @@ Where code is supplied, please make every effort to type it out yourself, you wi
 
 ### Task 4 - Ensure Your Data is Viewable 
 
-- With the ```pubnub.history({})``` method that you experimented with in the tutorial, see if you can still view your data when you add this to the [page](ws4_MAKE_2018_Example.html) you built in the final session of the Physical Computing workshops.
+- With the ```pubnub.history({})``` method that you experimented with in the tutorial, see if you can still view your data when you add this to the [page](ws3_MAKE_2020_Example.html) you built in the final session of the Physical Computing workshops.
 
 - It might look something like this:
 
@@ -69,8 +69,36 @@ eon.chart({
 
 - Make a new create-react-app project - remember how to do it? If not, go back to the first section of last week's tutorial.
 - cd into your new project directory and type ```npm install pubnub```
-- In your app.js file, import pubnub using ```import PubNub from 'pubnub';``` at the top of your App.js file.
-- Now make a new instance of pubnub in the constructor of your app:
+- then we also want to install pubnub react: ```npm install pubnub-react@rc```
+- In your app.js file, delete the contents as with the last tutorial, and create a blank app with a header1 element showing a title such as "Realtime Sensor Data in ReactJS"
+
+```javascript
+
+import React from 'react';
+
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+ 
+
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <h1> Realtime Sensor Data in ReactJS </h1>
+    
+            </div>
+    );
+  }
+}
+export default App;
+```
+
+
+OK, now import pubnub using ```import PubNub from 'pubnub';``` at the top of your App.js file.
+- Now make a new instance of pubnub in the ```constructor()``` of your app:
 
 ```javascript
 this.pubnub = new PubNub({
@@ -79,148 +107,174 @@ this.pubnub = new PubNub({
       });
 ```
 
-- still in the constructor, make a new 2D array, something like this:
-
-```javascript
-this.datepub = [[],[]];
-```
-
-- now, we're going to read our pubnub history into our array. I'm using 1 dimensional data so for practice purposes, I'm just going to reverse the same data and stick it in the second slot. We also need to bind the our response function to the scope of the App class:
-
-```javascript
-this.pubnub.history(
-          {
-        channel : 'iotchannel',
-        count : 360
-        },
-        (function (status, response) {
-
-          for(let i = 0; i < response.messages.length; i++) {
-            this.datepub[0][i] = response.messages[i]['entry']['eon']['sensor']; //reading response messages into array
-          }
-
-          this.datepub[1] = this.datepub[0].slice().reverse();	// reversing second array
-          this.datepub[0].unshift('data1'); // adding label to start of array 0
-          this.datepub[1].unshift('data2'); // adding label to start of array 1
-          this.setState({datepub:this.datepub}); //update datepub
-        }).bind(this)						//binding to present execution context
-      );
-```
-
 - And finally in the constructor, we're going to set the state of our app using the state object:
 
 ```javascript
 this.state = {
       chartType: 'spline',
-      datepub: this.datepub,
       pubnub: this.pubnub,
-      channel: 'iotchannel'
+      channel: 'ioechannel'
 
     };
 ```
 
-- Within our App class, we also need to make two functions to change the state of our App and pass those as props down to the Chart component that we're going to make in the next two stages. We're using the new arrow syntax to bind this to the correct execution context:
+### Task 6 - Using eon-react
 
+- go to the terminal window.
+- stop the development server by typing ctrl+c in the terminal window.
+- ensure that you have cd'd into your root directory of your project (it should have defaulted to this location)
+- we're going to install our Project Eon chart library to visualise our data, so type: ```npm install eon-react```
+
+### Task 7 - Making an eon-chart Component
+
+- Create a standard shell of a component with class structure - just as we did in the create-react-app tutorial last week. Call the class EonChart and save your file as EonChart.js in the src folder with your App.js file
+- Now import react and eon so that we can use them in our component:
 ```javascript
-  _setBarChart = () => {
-        console.log("Bar");
-        this.setState({ chartType: 'bar' });
-    }
-
-    _setLineChart = () => {
-        console.log("Line");
-        this.setState({ chartType: 'spline' })
-    }
+import React from 'react';
+import eon from 'eon-chart';
 ```
 
- Try firing up your updated component and printing ```this.datepub``` to the console. Can you see some data in there? If not, go back through and try and debug to see where things went awry.
-
-### Task 6 - Installing and Importing c3.js
-
-- cd into your new project directory and type ```npm install c3```
-- go into your node_modules folder and check for the folder.
-
-### Task 7 - Making a c3 Chart Component
-
-- Create a standard shell of a component with class structure - just as we did in the create-react-app tutorial last week. Call the class Chart and save your file as Chart.js
-- Now import c3 using ```import c3 from 'c3';```
-- Make sure you also import the css using ```import '../node_modules/c3/c3.css';``` 
-- OK we're going to use an in built React method called ```componentWillReceiveProps()``` to generate our c3 chart:
+- OK we're going to use an in built React method called ```componentDidMount()``` to generate our eon chart:
 
 ```javascript
-componentWillReceiveProps() {
-     this.chart = c3.generate({
-      bindto: '#'+this.props.ident,
-      data: { 
-        columns: this.props.datepub,
-        type: this.props.chartType,
-        colors: {
-            data1: '#CFD8DC',
-            data2: '#673AB7'
+componentDidMount(){
+    eon({
+      pubnub: this.props.pubnub,
+      channels: this.props.channels,
+      history: true,
+      generate: {
+        bindto: '#chart',
+        data: {
+          labels: this.props.labels || true,
+          type: this.props.type || 'line'
         }
       }
     });
+    
   }
  ```
- - And now let's add a method to change the chart type and update the data dynamically. Your final class definition should look something like this:
+
+ - this is very similar to the one we made back in the 3rd Physical Computing session, however notice that we can now use props to set particular properties dynamically...
+
+ - the ```||``` symbol in this case just helps us to define a default if one of the props is not set when the component mounted
+
+ - And now let's just make sure our ```render()``` function returns a div with the id of "chart" to match what we have told eon to bind to:
 
  ```javascript
- class Chart extends Component {
+ render(){
+    return(
+      <div id="chart"> </div>
+    );
+  }
+  ```
 
- 
-  componentWillReceiveProps() {
-    
-     this.chart = c3.generate({
-      bindto: '#'+this.props.ident,
-      data: { 
-        columns: this.props.datepub,
-        type: this.props.chartType,
-        colors: {
-            data1: '#CFD8DC',
-            data2: '#673AB7',
-            data3: '#0000ff'
+So, your final EonChart compoment class should look like this:
+
+```javascript
+import React from 'react';
+import eon from 'eon-chart';
+
+class EonChart extends React.Component{
+
+  componentDidMount(){
+    eon({
+      pubnub: this.props.pubnub,
+      channels: this.props.channels,
+      history: true,
+      generate: {
+        bindto: '#chart',
+        data: {
+          labels: this.props.labels || true,
+          type: this.props.type || 'line'
         }
       }
     });
-  }
-
-  componentDidUpdate() {
-    this._updateChart();
-  }
-  _updateChart() {
-
-    this.chart.load({columns: this.props.datepub, type: this.props.chartType});
     
   }
-  render() {
-    return <div id={this.props.ident}></div>;    
+
+  render(){
+    return(
+      <div id="chart"> </div>
+    );
   }
 }
 
-Chart.defaultProps = {
-  chartType: 'spline'
-}
-
-export default Chart;
+export default EonChart;
 ```
-- Now, back in your App class, import your Chart component somewhere at the top.
-- Then in the main app wrapper div, add your chart, setting the relevent props from the App state:
+
+### Task 8 - Adding our EonChart component to 
+
+- OK let's go back to our App.js file.
+- Now all we need to do is import our EonChart component like we would another library or class at the top of our App.js file:
 
 ```javascript
-<Chart ident="chart1" datepub = {this.state.datepub} pubnub={this.state.pubnub} channel={this.state.channel} chartType={this.state.chartType}/>
+import EonChart from './EonChart.js';
 ```
 
-- OK now add two buttons which call the ```_setLineChart()``` and ```_setBarChart()``` methods. HINT: This works exactly the same as HTML using the onClick method attribute!
+- then, in the app div, beneath the header, just add the EonChart component using JSX and set the props to our App state object settings:
 
-- Awesome, you've made a demo visualiser in React for your recorded data!
+```javascript
+<EonChart
+            pubnub={this.state.pubnub}
+            channels={[this.state.channel]}
+            type={this.state.chartType} />
 
-### Task 8 - Create some new components from material-ui examples
+```
+So, your final App.js should look like this:
+
+````javascript
+import React from 'react';
+import PubNub from 'pubnub';
+import EonChart from './EonChart.js';
+import './App.css';
+ 
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+    
+    this.pubnub  =  new  PubNub({
+        publishKey: 'pub-c-e1724244-aaba-4c9b-8d0e-2485941a394f',
+        subscribeKey:  'sub-c-4623abce-d815-11e6-9a5d-02ee2ddab7fe'
+    });
+  
+
+    this.state = {
+      chartType: 'spline',
+      pubnub: this.pubnub,
+      channel: 'ioechannel'
+
+    };
+
+  }
+
+  
+
+  render() {
+    return (
+      <div className="App">
+        <h1> Realtime Sensor Data in ReactJS </h1>
+             <EonChart
+            pubnub={this.state.pubnub}
+            channels={[this.state.channel]}
+            type={this.state.chartType} />
+      
+   
+            </div>
+    );
+  }
+}
+export default App;
+```
+
+***woohoo!*** you've managed to make your first realtime sensor data visualisation in react, pubnub and project Eon!
+
+### Task 9 - Create some new components from material-ui examples
 
 - Go to http://www.material-ui.com/ and check out some of their awesome ui components.
 - Try copying their source code into new custom componenents of your own and add them to your project.
-- I used the nav bar and the tool bar in the example I showed in class...
+- I used the nav bar and the tool bar perhaps...
 - NOTE: all material ui components need to be enclosed in <MuiThemeProvider></MuiThemeProvider> tags.
 
-### Task 9 
-- Why not try it with Project Eon by following the example code given on [this page](https://www.npmjs.com/package/eon-react). This is untested at this time!
+
 
