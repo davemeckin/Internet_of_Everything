@@ -202,7 +202,7 @@ class EonChart extends React.Component{
 export default EonChart;
 ```
 
-### Task 8 - Adding our EonChart component to 
+### Task 8 - Adding our EonChart component to our App
 
 - OK let's go back to our App.js file.
 - Now all we need to do is import our EonChart component like we would another library or class at the top of our App.js file:
