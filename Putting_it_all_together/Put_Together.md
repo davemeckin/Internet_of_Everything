@@ -70,7 +70,7 @@ eon.chart({
 - Make a new create-react-app project - remember how to do it? If not, go back to the first section of last week's tutorial.
 - cd into your new project directory and type ```npm install pubnub```
 - then we also want to install pubnub react: ```npm install pubnub-react@rc```
-- In your app.js file, delete the contents as with the last tutorial, and create a blank app with a header1 element showing a title such as "Realtime Sensor Data in ReactJS"
+- In your app.js file, delete the contents as with the last tutorial, and create a blank app with a heading1 element showing a title such as "Realtime Sensor Data in ReactJS"
 
 ```javascript
 
@@ -211,7 +211,7 @@ export default EonChart;
 import EonChart from './EonChart.js';
 ```
 
-- then, in the app div, beneath the header, just add the EonChart component using JSX and set the props to our App state object settings:
+- then, in the app div, beneath the heading, just add the EonChart component using JSX and set the props to our App state object settings:
 
 ```javascript
 <EonChart
