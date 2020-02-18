@@ -114,6 +114,83 @@ The final thing in our app code that we need to do is add the function that actu
   }
 ```
 
+Your final App.js file should look like this"
+
+```javascript
+import React, { Component } from "react";
+import Sketch from "react-p5";
+import socketIOClient from "socket.io-client";
+ 
+export default class App extends Component {
+  
+
+  constructor() {
+    super();
+    this.state = {
+      endpoint: "http://127.0.0.1:8081",
+      oscPortIn: 7500,
+      oscPortOut: 3331
+    };
+    this.x = 50;
+    this.y = 50;
+  }
+ 
+  setup = (p5, canvasParentRef) => {
+    p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(canvasParentRef); // use parent to render canvas in this ref (without that p5 render this canvas outside your component)
+   
+  };
+  draw = p5 => {
+    p5.background(0);
+    p5.ellipse(this.x, this.y, 70, 70);
+    // NOTE: Do not use setState in draw function or in functions that is executed in draw function... pls use normal variables or class properties for this purposes
+    //this.x++;
+  };
+
+  componentDidMount() {
+    const { endpoint } = this.state;
+    const { oscPortIn } = this.state;
+    const { oscPortOut } = this.state;
+    const socket = socketIOClient(endpoint);
+    socket.on('connect', function() {
+        socket.emit('config', { 
+          server: { port: oscPortIn,  host: '127.0.0.1'},
+          client: { port: oscPortOut, host: '127.0.0.1'}
+        });
+      });
+      socket.on('message', (function(msg) {
+        if (msg[0] === '#bundle') {
+          for (var i=2; i<msg.length; i++) {
+            this.receiveOsc(msg[i][0], msg[i].splice(1));
+          }
+        } else {
+          this.receiveOsc(msg[0], msg.splice(1));
+        }
+      }).bind(this));
+  }
+
+  receiveOsc(address, value) {
+      console.log("received OSC: " + address + ", " + value);
+
+      if (address == '/analogue') {
+        this.x = value[0];
+        this.y = value[1];
+      }
+      
+  }
+
+  
+ 
+  render() {
+ 
+    return (
+      <div>
+        <Sketch setup={this.setup} draw={this.draw} />
+      </div>
+      );
+  }
+}
+```
+
 ***woohoo!*** you've managed to make your first realtime sensor data visualisation in react, p5 and OSC!
 
 ### Task 7 - Make your sketch look çøø¬
