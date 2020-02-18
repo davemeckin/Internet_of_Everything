@@ -6,18 +6,22 @@ This workshop is designed to make you think back to previous sessions so you can
 
 Where code is supplied, please make every effort to type it out yourself, you will not learn by copying and pasting code.
 
+This example will work on the wired network at UWE Bristol and probably on your home internet router if it has its default settings. It will not work with Eduroam and/or tethering/hotspotting.
+
 
 ### Task 1 - Connect your Arduino to Pubnub
 
 - Connect your Arduino to the ethernet shield.
 - Connect two sensors to your Arduino. This could be any of the sensors we previously used: light detection/proximity detection/slide potentiometer).
 - Write/load the necesary firmware onto your Arduino, you saved it from the 5th Physical Computing workshop, right? (It's also on Blackboard)
+- *Remember* you need to look up the IP address of the machine you are sending to on your network and add that to your Arduino code. On a Mac, you can find the IP in System Preferences->Network.
 - Test it is working by checking in the serial monitor window on the Arduino IDE
+
 
 
 ### Task 2 - Making a new app and installing the dependencies
 
-- open a new terminal window on your mac. If you are using a UWE Bristol machine, you will probably have to run ```npm install -g create-react-app``` first.
+- Right, open a new terminal window on the mac you intend to send the data to. If you are using a UWE Bristol machine, you will probably have to run ```npm install -g create-react-app``` first.
 - let's create a new basic react app shell using ```npx create-react-app reactoscp5```
 - ```cd``` into your project folder, remember how to do this?
 - OK, once in your project folder, we're going to install three different libraries to help us use react, p5 and OSC together...
@@ -64,11 +68,9 @@ constructor() {
   }
 ```
 
-- now, in the draw function let's update our ellipse so that is uses this.x and this.y: ```p5.ellipse(this.x, this.y, 70, 70);```
-
 ### Task 5 - Connecting to our local server
 
-- OK, not going to lie, the next bit is a bit fiddly. We're going to use the componentDidMount() function just like we did week. Then we're going to use pretty much the same code from examples provided with p5js-osc. 
+- OK, not going to lie, the next bit is a bit fiddly. We're going to use the componentDidMount() function just like we did last week. Then we're going to use pretty much the same code from examples provided with p5js-osc. 
 
 - Beneath draw in your App.js file, add the following function (Please type this out so you can get a feel for what is going on in each line/block of code):
 
