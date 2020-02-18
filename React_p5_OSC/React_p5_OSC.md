@@ -1,6 +1,6 @@
 # Using React, p5 and OpenSoundControl (OSC)
 
-## Connecting your hardware to a realtime server and interacting with captured data using your React.js interface
+## Connecting your hardware to communicate directly to another machine, interacting with captured data using react and p5...
 
 This workshop is designed to make you think back to previous sessions so you can put all the stuff we've done together. If you are unsure, please check back through the workshops and the things we made to refresh your memory before asking for help.
 
