@@ -274,7 +274,7 @@ export default App;
 - Go to http://www.material-ui.com/ and check out some of their awesome ui components.
 - Try copying their source code into new custom componenents of your own and add them to your project.
 - I used the nav bar and the tool bar perhaps...
-- NOTE: all material ui components need to be enclosed in <MuiThemeProvider></MuiThemeProvider> tags.
+
 
 
 
