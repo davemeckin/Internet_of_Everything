@@ -53,7 +53,7 @@ This example will work on the wired network at UWE Bristol and probably on your 
 
 - at the top of App.js, we're going to import our socket.io library so that we can listen for data coming from our local server, on line 3 write: ```import socketIOClient from "socket.io-client";```
 
-- Right, now you'll notice that the example code the good people who made react-p5 gave us doesn't contain a constructor. We need to change this, plus we're going create a state object to contain some initial settings and we're going to change x and y to this.x and this.y... this will allow us to access this.x and this.y from elsewhere in our code later. Remember where the constructor goes?
+- Right, now you'll notice that the example code the good people who made react-p5 gave us doesn't contain a constructor. We need to change this, plus we're going to create a state object to contain some initial settings and we're going to change x and y to this.x and this.y... this will allow us to access this.x and this.y from elsewhere in our code later. Remember where the constructor goes?
 
 ```javascript
 constructor() {
