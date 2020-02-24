@@ -116,7 +116,7 @@ The final thing in our app code that we need to do is add the function that actu
   }
 ```
 
-Your final App.js file should look like this"
+Your final App.js file should look like this:
 
 ```javascript
 import React, { Component } from "react";
