@@ -12,8 +12,8 @@ This example will work on the wired network at UWE Bristol and probably on your 
 ### Task 1 - Connect your Arduino to the Network
 
 - Connect your Arduino to the ethernet shield.
-- Connect two sensors to your Arduino. This could be any of the sensors we previously used: light detection/proximity detection/slide potentiometer).
-- Write/load the necesary firmware onto your Arduino, you saved it from the 5th Physical Computing workshop, right? (It's also on Blackboard)
+- Connect two sensors to your Arduino. This could be any of the sensors we previously used: light detection/proximity detection/slide potentiometer.
+- Write/load the necessary firmware onto your Arduino, you saved it from the 5th Physical Computing workshop, right? (It's also on Blackboard)
 - *Remember* you need to look up the IP address of the machine you are sending to on your network and add that to your Arduino code. On a Mac, you can find the IP in System Preferences->Network.
 - Test it is working by checking in the serial monitor window on the Arduino IDE
 
@@ -53,7 +53,7 @@ This example will work on the wired network at UWE Bristol and probably on your 
 
 - at the top of App.js, we're going to import our socket.io library so that we can listen for data coming from our local server, on line 3 write: ```import socketIOClient from "socket.io-client";```
 
-- Right, now you'll notice that the example code the good people who made react-p5 gave us doesn't contain a constructor. We need to change this, plus we're going create a state object to contain some initial settings and we're going to change x and y to this.x and this.y... this will allow us to access this.x and this.y from elsewhere in our code later. Remember where the constructor goes?
+- Right, now you'll notice that the example code the good people who made react-p5 gave us doesn't contain a constructor. We need to change this, plus we're going to create a state object to contain some initial settings and we're going to change x and y to this.x and this.y... this will allow us to access this.x and this.y from elsewhere in our code later. Remember where the constructor goes?
 
 ```javascript
 constructor() {
@@ -116,7 +116,7 @@ The final thing in our app code that we need to do is add the function that actu
   }
 ```
 
-Your final App.js file should look like this"
+Your final App.js file should look like this:
 
 ```javascript
 import React, { Component } from "react";
