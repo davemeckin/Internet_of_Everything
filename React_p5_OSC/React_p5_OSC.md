@@ -201,5 +201,5 @@ export default class App extends Component {
 ### Task 8 - Super Stretch Goal - Make your sketch look çøø¬
 
 - Your p5 skills are now tightly honed so you are in a position to make a cool sketch. Can you port the code from the 5th Physical Computing session for instance? This would require using OSC again...
-- You will have to ```npm install p5``` and import p5 sound from "p5/lib/addons/p5.sound"
+- You will have to ```npm install p5``` and import p5 sound from "p5/lib/addons/p5.sound" as well p5 itself at the top of your App.js file.
 
