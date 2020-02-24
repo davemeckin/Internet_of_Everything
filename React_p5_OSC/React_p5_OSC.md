@@ -70,13 +70,13 @@ constructor() {
 
 ### Task 5 - Connecting to our local server
 
-- OK, not going to lie, the next bit is a bit fiddly. We're going to use the componentDidMount() function just like we did last week. Then we're going to use pretty much the same code from examples provided with p5js-osc. 
+- OK, not going to lie, the next bit is a bit fiddly. We're going to use the componentDidMount() function just like we did last week. Then we're going to use pretty much the same code from examples provided with p5js-osc. The first three lines within the function use a modern ES6 way of accessing data structures called ["destructuring assignment"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
 - Beneath draw in your App.js file, add the following function (Please type this out so you can get a feel for what is going on in each line/block of code):
 
 ```javascript
 componentDidMount() {
-    const { endpoint } = this.state; // using our endpoint from state object
+    const { endpoint } = this.state; // using our endpoint from state object - this is a modern ES6 way of accessing a data scructure call destructuring assignment
     const { oscPortIn } = this.state; // using our in port for OSC from state object
     const { oscPortOut } = this.state; // using our our port for OSC from state object
     const socket = socketIOClient(endpoint); // create an instance of our socket.io client
@@ -148,7 +148,7 @@ export default class App extends Component {
   };
 
  componentDidMount() {
-    const { endpoint } = this.state; // using our endpoint from state object
+    const { endpoint } = this.state; // using our endpoint from state object - this is a modern ES6 way of accessing elements from an object called destructuring assignment
     const { oscPortIn } = this.state; // using our in port for OSC from state object
     const { oscPortOut } = this.state; // using our our port for OSC from state object
     const socket = socketIOClient(endpoint); // create an instance of our socket.io client
