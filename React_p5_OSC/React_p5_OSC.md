@@ -72,7 +72,7 @@ constructor() {
 
 - OK, not going to lie, the next bit is a bit fiddly. We're going to use the componentDidMount() function just like we did last week. Then we're going to use pretty much the same code from examples provided with p5js-osc. The first three lines within the function use a modern ES6 way of accessing data structures called ["destructuring assignment"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
-- Beneath draw in your App.js file, add the following function (Please type this out so you can get a feel for what is going on in each line/block of code):
+- Beneath draw in your App.js file, add the following function (Please type this out so you can get a feel for what is going on in each line/block of code i.e DO NOT COPY AND PASTE):
 
 ```javascript
 componentDidMount() {
