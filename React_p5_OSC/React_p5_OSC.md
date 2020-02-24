@@ -9,7 +9,7 @@ Where code is supplied, please make every effort to type it out yourself, you wi
 This example will work on the wired network at UWE Bristol and probably on your home internet router if it has its default settings. It will not work with Eduroam and/or tethering/hotspotting.
 
 
-### Task 1 - Connect your Arduino to Pubnub
+### Task 1 - Connect your Arduino to the Network
 
 - Connect your Arduino to the ethernet shield.
 - Connect two sensors to your Arduino. This could be any of the sensors we previously used: light detection/proximity detection/slide potentiometer).
@@ -193,7 +193,12 @@ export default class App extends Component {
 
 ***woohoo!*** you've managed to make your first realtime sensor data visualisation in react, p5 and OSC!
 
-### Task 7 - Make your sketch look çøø¬
+### Task 7 - Stetch Goal
 
-- Your p5 skills are now tightly honed so you are in a position to make a cool sketch. Can you port the code from the 5th Physical Computing session for instance?
+- Instead of using OSC, can you send data to PubNub then access that data and map it to your sketch in some way?
+- Remember, you will have to upload last week's firmware onto the Arduino...
+
+### Task 8 - Super Stretch Goal - Make your sketch look çøø¬
+
+- Your p5 skills are now tightly honed so you are in a position to make a cool sketch. Can you port the code from the 5th Physical Computing session for instance? This would require using OSC again...
 
