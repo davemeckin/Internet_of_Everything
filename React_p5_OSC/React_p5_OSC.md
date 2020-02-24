@@ -12,8 +12,8 @@ This example will work on the wired network at UWE Bristol and probably on your 
 ### Task 1 - Connect your Arduino to Pubnub
 
 - Connect your Arduino to the ethernet shield.
-- Connect two sensors to your Arduino. This could be any of the sensors we previously used: light detection/proximity detection/slide potentiometer).
-- Write/load the necesary firmware onto your Arduino, you saved it from the 5th Physical Computing workshop, right? (It's also on Blackboard)
+- Connect two sensors to your Arduino. This could be any of the sensors we previously used: light detection/proximity detection/slide potentiometer.
+- Write/load the necessary firmware onto your Arduino, you saved it from the 5th Physical Computing workshop, right? (It's also on Blackboard)
 - *Remember* you need to look up the IP address of the machine you are sending to on your network and add that to your Arduino code. On a Mac, you can find the IP in System Preferences->Network.
 - Test it is working by checking in the serial monitor window on the Arduino IDE
 
